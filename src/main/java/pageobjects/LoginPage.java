@@ -8,7 +8,7 @@ import org.openqa.selenium.support.How;
 
 public class LoginPage {
 
-    @FindBy(how = How.XPATH, using = ".//a[contains(text(),'Зарегистрироваться')]")
+    @FindBy(how = How.LINK_TEXT, using = "Зарегистрироваться")
     private SelenideElement registrationLinkButton;
 
     @FindBy(how = How.XPATH, using = ".//button[contains(text(),'Войти')]")
@@ -38,14 +38,14 @@ public class LoginPage {
         return this;
     }
 
-    @Step("Получить заглавие со страницы авторизации")
+    @Step("Получить заголовок страницы авторизации")
     public boolean getTitleFromTheLoginPage() {
         loginPageTitle.shouldHave(Condition.exactText("Вход"));
         return true;
     }
 
     @Step("Авторизовать нового пользователя")
-    public void loginANewUser(String emailForLogin, String passwordForLogin){
+    public void loginNewUser(String emailForLogin, String passwordForLogin){
         nameBox.shouldBe(Condition.exist).setValue(emailForLogin);
         passwordBox.shouldBe(Condition.exist).setValue(passwordForLogin);
         enterToAccountButton.click();

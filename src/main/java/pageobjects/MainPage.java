@@ -76,9 +76,9 @@ public class MainPage {
         return this;
     }
 
-    @Step("Взять текст с кнопки 'офорить заказ'")
+    @Step("Взять текст с кнопки 'оформить заказ'")
     public boolean getTitleFromTheCreateOrderButton() {
-        orderButton.shouldHave(Condition.exactText("Оформить заказ"));
+        createOrderButton.shouldHave(Condition.exactText("Оформить заказ"));
         return true;
     }
 
